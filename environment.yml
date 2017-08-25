@@ -1,8 +1,16 @@
 dependencies:
- - python=3.5
+ - python=3.6
  - numpy
  - scipy
  - scikit-learn
  - jupyter
  - requests
+ - pandas
+ - seaborn
  - click
+ - openpyxl
+ - nb_conda
+ - pip:
+   - watermark
+   - pytest
+   - surprise
