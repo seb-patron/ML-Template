@@ -1,7 +1,8 @@
 import click
 import pandas as pd
 
-
+"""This file is meant to preprocess raw data
+primarily it adds and removes any columns as needed"""
 def get_featues(dframe):
     return dframe[['x0', 'x1', 'x2', 'x3']]
 
@@ -9,12 +10,13 @@ def get_featues(dframe):
 def get_label(dframe):
     return dframe['y']
 
-
+# read raw data source
 def read_raw_data(fname='data/raw/source.csv'):
     dframe = pd.read_csv(fname, header=None)
     return dframe
 
 
+# used to add extra columns (if necessary)
 def preprocess_data(dframe):
     dframe = dframe.copy()  # I want to avoid inplace modifications
     dframe.columns = ['x0', 'x1', 'x2', 'x3', 'y']
@@ -36,6 +38,7 @@ def main(input_file, output_file, excel):
     dframe = read_raw_data(input_file)
     dframe = preprocess_data(dframe)
 
+    # export to excel for easier reviewing later
     dframe.to_pickle(output_file)
     if excel is not None:
         dframe.to_excel(excel)
