@@ -10,6 +10,10 @@ This creates an virtual enviroment with Anaconda. To activate it, type
 
 $ source activate projectName
 
+To update project with new packages, add them to environment.yml, then type in
+
+$ conda env update -f environment.yml -n chaos
+
 To start up Jupyter Notebooks type
 
 $ jupyter notebook
